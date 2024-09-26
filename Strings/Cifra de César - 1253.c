@@ -3,28 +3,28 @@
 
 int main()
 {
-
     int entrada, variacao;
 
     scanf("%d", &entrada);
+    getchar();
 
     for (int i = 0; i < entrada; i++){
-        char frase[100]={0};
+        char frase[100] = {0};
 
         fgets(frase, 100, stdin);
         scanf("%d", &variacao);
+        getchar();
 
-        for (int j=0;j<strlen(frase);j++){
-            if(frase[j]>65){
+        int tamanho = strlen(frase);
+
+        for (int j = 0; j < tamanho-1; j++){
+            frase[j]=frase[j]-variacao;
+            if(frase[j]<65){
                 frase[j]=frase[j] + 26;
-            }else{
-                frase[j]=frase[j]-variacao;
             }
         }
         puts(frase);
     }
-
-
 
     return 0;
 }
